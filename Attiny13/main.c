@@ -41,30 +41,6 @@ void ShiftOutB(int val, int datapin, int clockpin, int direction, int numb)
 	}
 }
 
-/*
-void ShiftOutD(int val, int datapin, int clockpin, int direction, int numb)
-{
-	if(direction == 1)
-	{
-		for (int i = 0; i < numb; i++)
-		{
-			
-			PORTD = PORTD|(((((val >> i)) & 0x01)<< datapin)|(0x01 << clockpin));
-			PORTD = 0x00;
-		}
-	}
-	else
-	{
-		for (int i = numb - 1; i >= 0; i--)
-		{
-			PORTD = PORTD|(((((val >> i)) & 0x01)<< datapin)|(0x01 << clockpin));
-			PORTD = 0x00;
-		}
-	}
-	
-}
-//*/
-
 //same as ShiftOut with adding PortD or PortB. Each port needs own ShiftOut function. Also added MR pin
 void RegWrite(int port, int val, int MR, int CLK, int DS, int direction, int numb)
 {
@@ -171,15 +147,5 @@ int main(void)
 				_delay_ms(100);
 			}
 		}
-		//*/
-		/*
-		for(int i = 0; i< 256; i++)
-		{
-			PORTB = 0x00;
-			ShiftOutB(i,4,2,1,16);
-			PORTB = 0b001000;
-			_delay_ms(100);
-		}
-		//*/
 	}
 }
